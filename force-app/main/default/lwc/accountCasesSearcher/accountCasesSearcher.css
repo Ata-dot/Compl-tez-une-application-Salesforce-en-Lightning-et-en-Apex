@@ -1,3 +1,6 @@
-/**
- * Created by William on 13/03/2024.
- */
+.error-message {
+    background-color: #f8d7da; /* Rouge clair */
+    color: #721c24; /* Texte rouge sombre */
+}
+.error-message { background-color: #f8d7da; /* Rouge clair */ color: #721c24; /* Texte rouge sombre */ padding: 10px; border-radius: 5px; border: 1px solid #f5c6cb;
+}
