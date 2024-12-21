@@ -1,13 +1,21 @@
 public with sharing class AccountCasesController {
 
-    @AuraEnabled(Cacheable=true)
-    public static List<Case> getCases(Id accountId) {
-        return AccountCasesController.getCasesbyAccountId(accountId);
+    @AuraEnabled
+    public static List<Case> findCasesBySubject(String subject) {
+        if (String.isEmpty(subject)) {
+            // Return an empty list if no subject is provided
+            return new List<Case>();
         }
-// Récupérer les cas associés à l'accountId spécifié
-List<Case> cases = [
-    FROM Case
-    WHERE AccountId :accountId
-    ORDER BY CreatedDate DESC
-    ];
+
+        // Perform the SOQL query to find cases with the given subject
+        List<Case> cases = [
+            SELECT Id, CaseNumber, Subject, Status, Priority, AccountId
+            FROM Case
+            WHERE Subject LIKE :subject
+            ORDER BY CreatedDate DESC
+        ];
+
+        // Return the found cases
+        return cases;
+    }
 }
