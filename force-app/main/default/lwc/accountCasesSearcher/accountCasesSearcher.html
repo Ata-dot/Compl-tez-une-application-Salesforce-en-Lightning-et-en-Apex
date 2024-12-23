@@ -1,5 +1,5 @@
 <template>
-    <lightning-card title="Recherche de Cas par Sujet" icon-name="standard:case">
+    <lightning-card title="Recherche de Case par Sujet" icon-name="standard:case">
         <div class="slds-p-around_medium">
             <lightning-input label="Rechercher par Sujet"
                              value={searchTerm}
@@ -18,7 +18,6 @@
             </lightning-datatable>
         </template>
         <template if:true={error}>
-            <p class="slds-p-around_medium slds-text-color_error">{error}</p>
         </template>
     </lightning-card>
 </template>
