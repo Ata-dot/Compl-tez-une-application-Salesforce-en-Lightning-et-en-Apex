@@ -1,6 +1,10 @@
 public with sharing class AccountCasesController {
 
-    @AuraEnabled
-    public static void findCasesBySubject(){
+    @AuraEnabled(cacheable=true)
+    public static List<Case> findCasesBySubject(String subject){
+        return [SELECT Id, Subject FROM Case WHERE Subject = :subject];
 
     }
+
+
+}
