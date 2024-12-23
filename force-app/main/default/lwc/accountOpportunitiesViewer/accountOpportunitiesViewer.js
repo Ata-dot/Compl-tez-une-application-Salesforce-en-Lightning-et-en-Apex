@@ -12,7 +12,7 @@ export default class AccountOpportunitiesViewer extends LightningElement {
         { label: 'Phase', fieldName: 'StageName', type: 'text' }
     ];
 
-    @wire(getOpportunities, { accountId: '$accountId' }) //error
+    @wire(getOpportunities, { '$accountId': recordId }) //error
     wiredOpportunities({ error, data }) {
         if (data) {
             this.opportunities = data;
@@ -22,6 +22,15 @@ export default class AccountOpportunitiesViewer extends LightningElement {
             this.opportunities = undefined;
         }
     }
-
-
+handleRafraichir() {
+    getOpportunities()
+    .then((data) => {
+        this.opportunities = data;
+        this.error = undefined;
+    })
+    .catch((error) => {
+        this.error = error;
+        this.opportunities = undefined;
+    });
+}
 }
