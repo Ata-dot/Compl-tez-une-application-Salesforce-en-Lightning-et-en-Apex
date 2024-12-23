@@ -7,10 +7,10 @@ private class AccountCasesControllerTest {
     }
 
     @IsTest
-    static void testGetCases() {
+    static void testFindCasesBySubject() {
         Account testAccount = [SELECT Id FROM Account LIMIT 1];
         Test.startTest();
-        List<Cases> results = AccountCasesController.getCases(testAccount.Id);
+        List<Case> results = AccountCasesController.FindCasesBySubject(testAccount.Id);
         Test.stopTest();
         Assert.areEqual(1, results.size(), 'Should return one case');
     }
