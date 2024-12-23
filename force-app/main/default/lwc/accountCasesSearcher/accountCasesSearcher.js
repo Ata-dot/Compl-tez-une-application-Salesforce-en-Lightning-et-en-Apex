@@ -9,7 +9,7 @@ const COLUMNS = [
 
 export default class AccountCaseSearchComponent extends LightningElement {
     @api recordId;
-    @track cases;
+    @track cases =[];
     @track error;
     searchTerm = '';
     columns = COLUMNS;
@@ -26,6 +26,7 @@ export default class AccountCaseSearchComponent extends LightningElement {
             })
             .catch(error => {
                 this.error = 'Une erreur est survenue lors de la recherche des cases.';
+                this.cases= [];
             });
     }
 }
