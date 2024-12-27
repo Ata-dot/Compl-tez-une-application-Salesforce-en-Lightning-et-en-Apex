@@ -1,3 +1,10 @@
+/**
+ * @description       : 
+ * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+ * @group             : 
+ * @last modified on  : 12-25-2024
+ * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+**/
 public with sharing class AccountOpportunitiesController {
     /**
      * @description : Récupère la liste des opportunités associées à un compte spécifique.
@@ -7,21 +14,17 @@ public with sharing class AccountOpportunitiesController {
      */
     @AuraEnabled(Cacheable=true)
     public static List<Opportunity> getOpportunities(Id accountId) {
+        // Debug: début de la méthode
+        System.debug('Début de la méthode getOpportunities');
+        System.debug('Paramètre reçu - accountId: ' + accountId);
+    
         // Vérification de la validité de l'identifiant du compte
         if (accountId == null) {
-            throw new AuraHandledException('L\'identifiant du compte (accountId) est requis.');
+            System.debug('L\'identifiant du compte est null. Lancement d\'une exception.');
+            throw new NullPointerException('accountID ne peut pas etre null.');
         }
-        
-        try {
-            // Requête pour récupérer les opportunités
-            return [
-                SELECT Id, Name, Amount, CloseDate, StageName
-                FROM Opportunity
-                WHERE AccountId = :accountId
-            ];
-        } catch (Exception e) {
-            // Gestion des erreurs et renvoi d'un message clair
-            throw new AuraHandledException('Une erreur est survenue lors de la récupération des opportunités : ' + e.getMessage());
-        }
-    }
+     // Proceed with logic to retrieve opportunities for the accountId
+    return [SELECT Id, Name, Amount, StageName FROM Opportunity WHERE AccountId = :accountId];
 }
+}
+
