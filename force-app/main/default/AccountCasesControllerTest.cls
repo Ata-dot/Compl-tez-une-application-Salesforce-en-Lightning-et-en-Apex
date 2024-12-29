@@ -41,7 +41,7 @@ private class AccountCasesControllerTest {
         Account testAccount = [SELECT Id FROM Account LIMIT 1];
         System.debug('Fetched test Account: ' + testAccount);
         
-        // Test logic: Find cases associated with this Account
+        // Test: Find cases associated with this Account
         Test.startTest();
         List<Case> results = AccountCasesController.FindCasesBySubject(testAccount.Id);
         System.debug('Results from FindCasesBySubject: ' + results);
