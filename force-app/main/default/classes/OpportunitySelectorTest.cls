@@ -44,7 +44,7 @@ private class OpportunitySelectorTest {
         // Débogage pour vérifier l'Account récupéré
         System.debug('Retrieved Test Account with Id: ' + testAccount.Id);
 
-        // Démarrer le test pour mesurer les limites de gouvernance
+        // Démarrer le test 
         Test.startTest();
 
         // Appeler la méthode à tester
