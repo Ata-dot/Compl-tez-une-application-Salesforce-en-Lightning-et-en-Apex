@@ -20,7 +20,7 @@ public with sharing class OpportunitySelector {
             throw new AuraHandledException('Account Id cannot be null');
         }
 
-        // Requête SOQL pour obtenir les opportunités associées à ce compte
+        // Requête pour obtenir les opportunités associées à ce compte
         // Cette requête récupère les champs nécessaires et filtre par AccountId
         List<Opportunity> opportunities = [
             SELECT Id, Name, Amount, CloseDate, StageName 
