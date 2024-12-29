@@ -48,7 +48,7 @@ public static Opportunity getTestOpportunity(Id accountId) {
 
     // Méthode pour vérifier et récupérer un compte
     public static Account getOtCreateTestAccount() {
-        system.debug('Vérification ou créarion du compte de test');
+        system.debug('Vérification du compte de test');
         List<Account> accounts = [SELECT Id, Name FROM Account WHERE Name = 'Test Account' LIMIT 1];
         if(!accounts.isEmpty()) {
             system.debug('Compte existant retrouvée : ' + accounts[0]);
