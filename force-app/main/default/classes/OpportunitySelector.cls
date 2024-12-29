@@ -7,7 +7,7 @@
 **/
 public with sharing class OpportunitySelector {
 
-    // Cette méthode est accessible depuis un composant Aura ou LWC
+   
     @AuraEnabled(cacheable=true)
     public static List<Opportunity> getOpportunitiesByAccountId(Id accountId) {
         
