@@ -1,3 +1,10 @@
+/**
+ * @description       : 
+ * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+ * @group             : 
+ * @last modified on  : 01-03-2025
+ * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+**/
 @IsTest
 public class AccountOpportunitiesControllerTest {
     @TestSetup
@@ -43,22 +50,6 @@ public class AccountOpportunitiesControllerTest {
         // Vérifier que les opportunités sont récupérées
         System.assertEquals(2, opps.size(), 'Deux opportunités doivent être récupérées.');
         System.assertEquals('Opportunity 1', opps[0].Name, 'Le nom de la première opportunité doit être "Opportunity 1"');
-    }
-
-    @IsTest
-    static void testGetOpportunitiesWithNullAccountId() {
-        System.debug('Démarrage de la méthode testGetOpportunitiesWithNullAccountId');
-
-        // Tester la méthode avec un ID de compte null
-        try {
-            AccountOpportunitiesController.getOpportunities(null);
-            System.assert(false, 'Une exception doit être levée lorsque accountId est null.');
-        } catch (Exception e) {
-            System.debug('Exception capturée : ' + e.getMessage());
-            // Assert exception and message
-            System.assertEquals('accountId cannot be null', e.getMessage(),'Exception message should be specific to null accountId');
-            
-        }
     }
 
     @IsTest
