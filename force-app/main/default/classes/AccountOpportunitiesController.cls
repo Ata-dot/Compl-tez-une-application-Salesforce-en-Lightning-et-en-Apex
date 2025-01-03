@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
  * @group             : 
- * @last modified on  : 12-25-2024
+ * @last modified on  : 01-03-2025
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 **/
 public with sharing class AccountOpportunitiesController {
@@ -21,10 +21,9 @@ public with sharing class AccountOpportunitiesController {
         // Vérification de la validité de l'identifiant du compte
         if (accountId == null) {
             System.debug('L\'identifiant du compte est null. Lancement d\'une exception.');
-            throw new NullPointerException('accountID ne peut pas etre null.');
+            throw new Exception('accountId cannot be null');
         }
      // Proceed with logic to retrieve opportunities for the accountId
     return [SELECT Id, Name, Amount, StageName FROM Opportunity WHERE AccountId = :accountId];
 }
 }
-
